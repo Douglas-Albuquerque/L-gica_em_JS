@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação</title>
+  <style>
+    body {
+      background-color: lightslategray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lógica de Programação com Javascript</h1>
+  <script>
+    //pedir pro usuário digitar dois numeros
+    let n1 = prompt('Jogador 1 digite um numero: ');
+    let n2 = prompt('Jogador 2 digite um numero: ');
+    //se os numeros forem igual deve dar empate
+    //se forem diferentes, sortear um numero entre 0 e 1, 0 ganha o menor numero 1 ganha o maior numero
+    let nR = parseInt(Math.random() * 2)
+    console.log(nR);
+
+
+    if (n1 == n2) {
+      alert('Parabéns o jogo empatou');
+    } else {
+      if (nR == 0 && n1 < n2) {
+        alert('Parabéns jogador 1 você venceu');
+      } else if (nR == 0 && n2 < n1) {
+        alert('Parabéns jogador 2 você venceu');
+      } else {
+        if (nR == 1 && n1 > n2) {
+          alert('Parabéns jogador 1 você venceu');
+        } else if (nR == 1 && n2 > n1) {
+          alert('Parabéns jogador 2 você venceu');
+        }
+      }
+    }
+
+// ou resolver assim:
+
+    /*     if (nR == 0 && n1 < n2) {
+          alert('Parabéns jogador 1 você venceu')
+        } else if (nR == 0 && n2 < n1) {
+          alert('Parabéns jogador 2 você venceu')
+        } else if (nR == 1 && n1 > n2) {
+          alert('Parabéns jogador 1 você venceu')
+        } else if (nR == 1 && n2 > n1) {
+          alert('Parabéns jogador 2 você venceu')
+        } else {
+          alert('Parabéns o jogo empatou')
+        } */
+
+  </script>
+</body>
+
+</html>

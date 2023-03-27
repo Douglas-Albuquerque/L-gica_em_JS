@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica de programação</title>
+  <style>
+    body {
+      background-color: lightslategray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lógica de programação com Javascript</h1>
+  <script>
+    //pedir pro usuário digitar dois numeros
+    let n1 = prompt('Insira sua 1° nota');
+    let n2 = prompt('Insira sua 2° nota');
+    //caucular a média entre os números
+    let media = (parseFloat(n1) + parseFloat(n2)) / 2;
+    //mostrar um booleano true quando a nota for maior que 5 e falso quando menor
+    if (media <= 5) {
+      alert("A sua média é " + media + " que pena você foi REPROVADO")
+    } else {
+      alert("A sua média é " + media + " parabéns você está APROVADO")
+    }
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    8) Desenvolva um programa que leia uma distância em metros e mostre os valores
+    relativos em outras medidas.
+  </h1>
+  <p>
+    EX: <br />
+    Digite uma distância em metros: 185.72 <br />
+    A distância de 185.7m corresponde a: <br />
+    0.18572Km <br />
+    1.8572Hm <br />
+    18.572Dam <br />
+    1857.2dm <br />
+    18572.0cm <br />
+    185720.0mm <br />
+  </p>
+
+  <script>
+    let n1 = number1();
+    let km = convertKm();
+    let hm = convertHm();
+    let dam = convertDam();
+    let dm = convertDm();
+    let cm = convertCm();
+    let mm = convertMm();
+
+
+    function number1() {
+      let n1 = prompt("Digite uma distância em metros: ");
+      return n1;
+    }
+
+    function convertKm() {
+      let km = n1 / 1000;
+      return km;;
+    }
+    function convertHm() {
+      let hm = n1 / 100;
+      return hm;
+    }
+    function convertDam() {
+      let dam = n1 / 10;
+      return dam;
+    }
+    function convertDm() {
+      let dm = n1 * 10;
+      return dm;
+    }
+    function convertCm() {
+      let cm = n1 * 100;
+      return cm;
+    }
+    function convertMm() {
+      let mm = n1 * 1000;
+      return mm;
+    }
+
+    alert(` A distância de ${n1}m corresponde a:
+      ${km} Km
+      ${hm} hm
+      ${dam} Dam
+      ${dm} dm
+      ${cm} cm
+      ${mm} mm
+      `)
+
+  </script>
+</body>
+
+</html>

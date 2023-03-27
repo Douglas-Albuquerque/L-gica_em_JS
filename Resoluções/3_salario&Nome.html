@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    3) Crie um programa que leia o nome e o salário de um funcionário, mostrando no
+    final uma mensagem.
+  </h1>
+  <p>
+    Ex:<br />
+    Nome do Funcionário: Maria do Carmo<br />
+    Salário: 1850,45<br />
+    O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho.
+  </p>
+  <script>
+
+    let name = wName();
+    let salary = wSalary();
+
+    function wName() {
+
+      let yourName = prompt("Digite o nome do funcionário:")
+      return yourName
+
+    };
+
+    function wSalary() {
+
+      let yourSalary = prompt("Digite o salário do funcionário:")
+      return yourSalary
+
+    };
+
+    alert(`O funcionário ${name} tem um salário de R$${salary} em novembro.`)
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    5) Faça um programa que leia as duas notas de um aluno em uma matéria e mostre
+    na tela a sua média na disciplina.
+  </h1>
+  <p>
+    Ex: <br />
+    Nota 1: 4.5 <br />
+    Nota 2: 8.5 <br />
+    A média entre 4.5 e 8.5 é igual a 6.5
+  </p>
+
+  <script>
+
+    let note1 = firstNote();
+    let note2 = secondNote();
+    let media = result();
+
+    function firstNote() {
+      let note1 = prompt("digite a 1° nota: ")
+      return note1
+    };
+    function secondNote() {
+      let note2 = prompt("digite a 2° nota: ")
+      return note2
+    };
+    function result() {
+      let media = (parseFloat(note1) + parseFloat(note2)) / 2;
+      return media
+    };
+
+    alert(`A média entre ${note1} e ${note2} é igual a ${media}`)
+
+  </script>
+</body>
+
+</html>
