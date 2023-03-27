@@ -25,10 +25,10 @@
     console.log(media);
     //se uma das duas notas for = a 0 ou a media for = ou menor que 5 o aluno será reprovado
     //se não ele será aprovado
-    if (n1 > 0 && n2 > 0 && media > 5) {
-      alert("Parabéns você está APROVADO")
-    } else {
+    if (n1 === 0 || n2 === 0 || media <= 5) {
       alert("que pena você foi REPROVADO")
+    } else {
+      alert("Parabéns você está APROVADO")
     }
 
 
