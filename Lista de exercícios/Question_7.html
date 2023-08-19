@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Crie um algoritmo que leia um número real e mostre na tela o seu dobro e a sua terça parte.</h1>
+    <p>Ex:</p>
+    <p>Digite um número: 3.5</p>
+    <p>O dobro de 3.5 é 7.0</p>
+    <p>A terça parte de 3.5 é 1.16666</p>
+    <Script>
+        let N = num();
+        let D = dob();
+        let T = ter();
+
+        function num(){
+            let n1 = prompt("Insira um número!");
+            return n1
+        };
+        function dob(){
+            let dob1 = N * 2;
+            return dob1;
+        };
+        function ter(){
+            let ter1 = N / 3;
+            return ter1;
+        };
+
+        alert(`o dobro de ${N} é ${D}`)
+        alert(` a terça parte de ${N} é ${T}`)
+
+    </Script>
+</body>
+</html>

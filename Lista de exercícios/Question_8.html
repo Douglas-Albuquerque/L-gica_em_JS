@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1> Desenvolva um programa que leia uma distância em metros e mostre os valores relativos em outras medidas.</h1>
+    <p>Ex:</p>
+    <p>Digite uma distância em metros: 185.72</p>
+    <p>A distância de 85.7m corresponde a:</p>
+    <p>0.18572Km </p>
+    <p>1857.2dm</p>
+    <p>1.8572Hm</p>            
+    <p>18572.0cm</p>
+    <p>18.572Dam</p>           
+    <p>185720.0mm</p>
+    <Script>
+        let D = dis();
+        let Km = mToKm();
+        let dm = mToDm();
+        let Hm = mToHm();
+        let cm = mToCm();
+        let Dam = mToDam();
+        let mm = mToMm();
+
+        function dis(){
+            let dis1 = prompt("Digite uma distância em metros");
+            return dis1
+        };
+        function mToKm(){
+            let mKm = D / 1000;
+            return mKm; 
+        };
+        function mToDm(){
+            let mDm = D * 10;
+            return mDm; 
+        };
+        function mToHm(){
+            let mHm = D / 100;
+            return mHm; 
+        };
+        function mToCm(){
+            let mCm = D * 100;
+            return mCm; 
+        };
+        function mToDam(){
+            let mDam = D / 10;
+            return mDam; 
+        };
+        function mToMm(){
+            let mMm = D * 1000;
+            return mMm; 
+        };
+        alert(`A distância de ${D} metros corresponde a:`);
+        alert(Km+" quilômetros");
+        alert(dm+" decímetros");
+        alert(Hm+" hectômetros");
+        alert(cm+" centímetros");
+        alert(Dam+" decâmetros");
+        alert(mm+" milímetros");
+    </Script>
+</body>
+</html>

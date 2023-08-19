@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Crie um programa que leia o preço de um produto, calcule e mostre o seu PREÇO PROMOCIONAL, com 5% de desconto.</h1>
+    
+    <Script>
+
+        let price = p();
+        let discount = d();
+
+        function p(){
+            let pr = prompt("Insira o preço do produto que deseja o desconto");
+            return pr;
+        };
+        function d(){
+            let dis1 = (price * 5) /100;
+            let dis = price - dis1;
+            return dis;
+        };
+        alert(`O valor do produto com 5% de desconto é R$${discount}`);
+    </Script>
+</body>
+</html>

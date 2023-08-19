@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Desenvolva uma lógica que leia os valores de A, B e C de uma equação do segundo grau e mostre o valor de Delta.</h1>
+    
+    <Script>
+
+        let A = a();
+        let B = b();
+        let C = c();
+        let D = delta();
+
+        
+        function a(){
+            let a1 = prompt("Insira o valor de a");
+            return a1;
+        };
+        function b(){
+            let b1 = prompt("Insira o valor de b");
+            return b1;
+        };
+        function c(){
+            let c1 = prompt("Insira o valor de c");
+            return c1;
+        };
+        function delta(){
+            let delta1 = (B*B) - ((4*A)*C);
+            return delta1;
+        };
+
+        alert(`Com os valores inseridos iremos calcular a seguinte equação: Δ = b² - 4.a.c`);
+        alert(`O valor de Δ é ${D}`);
+    </Script>
+</body>
+</html>

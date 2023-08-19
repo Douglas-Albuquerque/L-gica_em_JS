@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Faça um algoritmo que leia a largura e altura de uma parede, calcule e </br>
+        mostre a área a ser pintada e a quantidade de tinta necessária para o serviço,</br>  
+        sabendo que cada litro de tinta pinta uma área de 2metros quadrados.</h1>
+    
+    <Script>
+
+        let A = alt();
+        let L = lar();
+        let Area = ar();
+        let Lit = litros();
+        console.log(Area);
+
+        function alt(){
+            let altura = prompt("Qual a altura da parede a ser pintda?");
+            return altura;
+        };
+        function lar(){
+            let largura = prompt("Qual a largura da parede a ser pintda?");
+            return largura;
+        };
+        function ar(){
+            let ar1 = A * L;
+            return ar1;
+        };
+        function litros(){
+            let litros1 = Area / 2;
+            return litros1;
+        };
+
+        console.log(ar);
+        alert(`A área da parede informada é de ${Area} metros e a quantidade de tinta necessária para pintá-la é de ${Lit} litros`);
+    </Script>
+</body>
+</html>

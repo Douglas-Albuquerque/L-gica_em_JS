@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Faça um algoritmo que leia quanto dinheiro uma pessoa tem na carteira (em R$)</br> 
+        e mostre quantos dólares ela pode comprar. Considere US$1,00 = R$4,97.</h1>
+
+    <Script>
+
+        let D = din();
+        let Convert = conv(); 
+
+        function din(){
+            let real = prompt("Insira qual valor você deseja converter de reais para dólar");
+            return real;
+        };
+        function conv(){
+            let convert1 = D * 4.97;
+            let total = Math.round(convert1);
+            return convert1.toFixed(2)
+            //O Math.round arredonda o numero deixando eliminando as casas decimais.
+            //Utilizei o metodo .toFixed que arredonda os numeros pra cima 
+            //neste caso utilizei o toFixed(2) para mostrar as duas casas decimais após a virgula.
+        };
+        alert(`O valor de R$${D} convertido para Dólar com a cotação de R$4,97 por Dólar é: $${Convert}`);
+
+    </Script>
+</body>
+</html>

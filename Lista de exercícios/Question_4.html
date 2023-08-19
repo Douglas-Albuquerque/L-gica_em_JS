@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>4- Desenvolva um algoritmo que leia dois números inteiros e mostre o somatório entre eles.</h1>
+    <p>Ex:</p>
+    <p>Digite um valor: 8</p>
+    <p>Digite outro valor: 5</p>
+    <p>A soma entre 8 e 5 é igual a 13</p>
+    <Script>
+
+        let n1 = number1();
+        let n2 = number2();
+        let sum = result();
+
+        function number1(){
+            let n01 = prompt("Digite o 1° numero");
+            return n01;
+        };
+        function number2(){
+            let n02 = prompt("Digite o 2° numero");
+            return n02;
+        };
+
+        function result(){
+            let sum0 = parseInt(n1) + parseInt(n2);
+            return sum0;
+        };
+
+        alert(`A soma entre ${n1} e ${n2} é igual a ${sum}`)
+    </Script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Faça um programa que leia um número inteiro e mostre o seu antecessor e seu sucessor</h1>
+    <p>Ex:</p>
+    <p>Digite um número: 9</p>
+    <p>O antecessor de 9 é 8</p>
+    <p>O sucessor de 9 é 10</p>
+    <Script>
+        let N = N1();
+        let A = ant();
+        let S = suc();
+
+        function N1(){
+            let n1 = prompt("Insira um número!");
+            return n1;
+        };
+        function ant(){
+            let ant1 = N - 1;
+            return ant1;
+        };
+        function suc(){
+            let suc1 = parseInt(N) + 1;
+            return suc1;
+        };
+
+        alert(`O antecessor de ${N} é ${A}`);
+        alert(`O sucessor de ${N} é ${S}`);
+    </Script>
+</body>
+</html>

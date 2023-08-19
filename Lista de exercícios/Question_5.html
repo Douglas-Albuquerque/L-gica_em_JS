@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Faça um programa que leia as duas notas de um aluno em uma matéria e mostre na tela a sua média na disciplina.</h1>
+    <p>Ex:</p>
+    <p>Nota 1: 4.5</p>
+    <p>Nota 2: 8.5</p>
+    <p>A média entre 4.5 e 8.5 é igual a 6.5</p>
+    <Script>
+        let n1 = note1();
+        let n2 = note2();
+        let average = m1();
+
+        function note1(){
+            let n01 = prompt("Digite a 1° nota:");
+            return n01;
+        };
+        console.log(n1);
+        function note2(){
+            let n02 = prompt("Digite a 2° nota:");
+            return n02;
+        };
+        console.log(n2);
+        function m1(){
+            let m01 = (parseFloat(n1) + parseFloat(n2)) / 2;
+            return m01;
+        };
+
+        alert(`A média entre ${n1} e ${n2} é igual a ${average}`)
+    </Script>
+</body>
+</html>
