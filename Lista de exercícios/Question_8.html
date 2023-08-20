@@ -18,7 +18,7 @@
     <p>18.572Dam</p>           
     <p>185720.0mm</p>
     <Script>
-        let D = dis();
+        let D = prompt("Digite uma distância em metros");
         let Km = mToKm();
         let dm = mToDm();
         let Hm = mToHm();
@@ -26,10 +26,6 @@
         let Dam = mToDam();
         let mm = mToMm();
 
-        function dis(){
-            let dis1 = prompt("Digite uma distância em metros");
-            return dis1
-        };
         function mToKm(){
             let mKm = D / 1000;
             return mKm; 
@@ -54,13 +50,16 @@
             let mMm = D * 1000;
             return mMm; 
         };
-        alert(`A distância de ${D} metros corresponde a:`);
-        alert(Km+" quilômetros");
-        alert(dm+" decímetros");
-        alert(Hm+" hectômetros");
-        alert(cm+" centímetros");
-        alert(Dam+" decâmetros");
-        alert(mm+" milímetros");
+        alert(
+            `A distância de ${D} metros corresponde a:\n
+            ${Km} quilômetros\n
+            ${dm} decímetros\n
+            ${Hm} hectômetros\n
+            ${cm} centímetros\n
+            ${Dam} decâmetros\n
+            ${mm} milímetros`
+        );
+
     </Script>
 </body>
 </html>

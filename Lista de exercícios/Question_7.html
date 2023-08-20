@@ -13,14 +13,10 @@
     <p>O dobro de 3.5 é 7.0</p>
     <p>A terça parte de 3.5 é 1.16666</p>
     <Script>
-        let N = num();
+        let N = prompt("Insira um número!");
         let D = dob();
         let T = ter();
 
-        function num(){
-            let n1 = prompt("Insira um número!");
-            return n1
-        };
         function dob(){
             let dob1 = N * 2;
             return dob1;
@@ -30,8 +26,8 @@
             return ter1;
         };
 
-        alert(`o dobro de ${N} é ${D}`)
-        alert(` a terça parte de ${N} é ${T}`)
+        alert(`o dobro de ${N} é ${D}`);
+        alert(` a terça parte de ${N} é ${T}`);
 
     </Script>
 </body>

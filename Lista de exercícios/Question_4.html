@@ -14,25 +14,17 @@
     <p>A soma entre 8 e 5 é igual a 13</p>
     <Script>
 
-        let n1 = number1();
-        let n2 = number2();
+        let n1 = prompt("Digite o 1° numero");
+        let n2 = prompt("Digite o 2° numero");
         let sum = result();
-
-        function number1(){
-            let n01 = prompt("Digite o 1° numero");
-            return n01;
-        };
-        function number2(){
-            let n02 = prompt("Digite o 2° numero");
-            return n02;
-        };
 
         function result(){
             let sum0 = parseInt(n1) + parseInt(n2);
             return sum0;
         };
 
-        alert(`A soma entre ${n1} e ${n2} é igual a ${sum}`)
+        alert(`A soma entre ${n1} e ${n2} é igual a ${sum}`);
     </Script>
+    
 </body>
 </html>

@@ -13,20 +13,11 @@
     
     <Script>
 
-        let A = alt();
-        let L = lar();
+        let A = prompt("Qual a altura da parede a ser pintda?");
+        let L = prompt("Qual a largura da parede a ser pintda?");
         let Area = ar();
         let Lit = litros();
-        console.log(Area);
 
-        function alt(){
-            let altura = prompt("Qual a altura da parede a ser pintda?");
-            return altura;
-        };
-        function lar(){
-            let largura = prompt("Qual a largura da parede a ser pintda?");
-            return largura;
-        };
         function ar(){
             let ar1 = A * L;
             return ar1;
@@ -36,8 +27,8 @@
             return litros1;
         };
 
-        console.log(ar);
         alert(`A área da parede informada é de ${Area} metros e a quantidade de tinta necessária para pintá-la é de ${Lit} litros`);
+        
     </Script>
 </body>
 </html>

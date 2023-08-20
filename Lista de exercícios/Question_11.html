@@ -11,24 +11,11 @@
     
     <Script>
 
-        let A = a();
-        let B = b();
-        let C = c();
+        let A = prompt("Insira o valor de a");
+        let B = prompt("Insira o valor de b");
+        let C = prompt("Insira o valor de c");
         let D = delta();
 
-        
-        function a(){
-            let a1 = prompt("Insira o valor de a");
-            return a1;
-        };
-        function b(){
-            let b1 = prompt("Insira o valor de b");
-            return b1;
-        };
-        function c(){
-            let c1 = prompt("Insira o valor de c");
-            return c1;
-        };
         function delta(){
             let delta1 = (B*B) - ((4*A)*C);
             return delta1;
@@ -36,6 +23,7 @@
 
         alert(`Com os valores inseridos iremos calcular a seguinte equação: Δ = b² - 4.a.c`);
         alert(`O valor de Δ é ${D}`);
+        
     </Script>
 </body>
 </html>

@@ -12,13 +12,9 @@
 
     <Script>
 
-        let D = din();
+        let D = prompt("Insira qual valor você deseja converter de reais para dólar");
         let Convert = conv(); 
-
-        function din(){
-            let real = prompt("Insira qual valor você deseja converter de reais para dólar");
-            return real;
-        };
+        
         function conv(){
             let convert1 = D * 4.97;
             let total = Math.round(convert1);

@@ -13,17 +13,8 @@
     <p>Salário: 1850,45</p>
     <p>O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho.</p>
     <Script>
-        let employee = writeName();
-        let wage = writeWage();
-        
-        function writeName(){
-            let name = prompt("Qual o nome do funcionário?");
-            return name;
-        };
-        function writeWage(){
-            let wage0 = prompt("Informe o salário:");
-            return wage0;
-        };
+        let employee = prompt("Qual o nome do funcionário?");
+        let wage = prompt("Informe o salário:");
 
         alert(`O funcionário ${employee} tem um salário de R$${wage} em Agosto.`)
     </Script>

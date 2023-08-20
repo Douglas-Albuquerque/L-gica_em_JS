@@ -12,19 +12,16 @@
 
     <Script>
 
-        let wage = writeWage();
+        let wage prompt("Informe o salário:");
         let discount = d();
 
-        function writeWage(){
-            let wage0 = prompt("Informe o salário:");
-            return wage0;
-        };
         function d(){
             let dis1 = (wage * 15) /100;
             let dis = parseFloat(wage) + parseFloat(dis1);
             return dis.toFixed(2);
         };
         alert(`O valor do salário com 15% de aumento é R$${discount}`);
+        
     </Script>
     </Script>
 </body>
