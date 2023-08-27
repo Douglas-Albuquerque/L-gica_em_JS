@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Escreva um programa para calcular a redução do tempo de vida de um 
+        fumante. Pergunte a quantidade de cigarros fumados por dias e quantos anos ele 
+        já fumou. Considere que um fumante perde 10 min de vida a cada cigarro. Calcule 
+        quantos dias de vida um fumante perderá e exiba o total em dias</h1>
+    
+    <Script>
+
+        let cigarettes = prompt("Quantos cigarros você fuma por dia?");
+        let years = prompt("A quantos anos você fuma?");
+        let days = deathTime();
+        let deadYears = yearsOfDeath();
+
+        function deathTime(){
+            let cigInDays = cigarettes * (years*365);
+            let cigInMinutes = cigInDays * 10;
+            let daysOfDeath = cigInMinutes / 1440;
+            return daysOfDeath.toFixed(2);
+        };
+        //adicionei a conversão do resultado em anos para deixar a questão mais completa.
+        function yearsOfDeath(){
+            let y = days / 365;
+            return parseInt(y);
+        };
+
+        alert(`Com a quantidade que você fumou nos ultimos anos você perdeu ${days} dias de vida que totalizam ${deadYears} anos`);
+        
+
+    </Script>
+</body>
+</html>

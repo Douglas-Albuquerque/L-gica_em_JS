@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Crie um algoritmo que leia o nome e as duas notas de um aluno, calcule a sua 
+        média e mostre na tela. No final, analise a média e mostre se o aluno teve ou 
+        não um bom aproveitamento (se ficou acima da média 7.0)</h1>
+    <Script>
+        let name = prompt('Insira seu nome:');
+        let N1 = prompt('Insira sua 1° nota:');
+        let N2 = prompt('Insira sua 2° nota:');
+        let media = (parseFloat(N1) + parseFloat(N2)) / 2;
+        let analisys = mediaAnalisy();
+
+        function mediaAnalisy(){
+
+            if(media >= 7){
+                alert(`${name} sua média foi ${media.toFixed(2)} e você teve um bom aproveitamento.`);
+            }else{
+                alert(`${name} sua média foi ${media.toFixed(2)} e você não teve um bom aproveitamento.`)
+            }
+
+        }
+    </Script>
+</body>
+</html>

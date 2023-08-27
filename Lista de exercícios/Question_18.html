@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Faça um programa que leia o ano de nascimento de uma pessoa, calcule a idade 
+        dela e depois mostre se ela pode ou não votar.</h1>
+
+    <Script>
+        let birthYear = prompt("Em que ano você nasceu?");        
+        canVote(birthYear);
+
+        function canVote(birthYear) {
+            let age =  2023 - birthYear;
+            if(age >= 18){
+                alert(`Você tem ${age} anos e já pode votar.`);
+            } else {
+                alert("Você ainda não completou a idade para votar.");
+            };
+        };
+    </Script>
+</body>
+
+</html>
