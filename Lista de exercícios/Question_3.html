@@ -8,15 +8,29 @@
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1>3- Crie um programa que leia o nome e o salário de um funcionário, mostrando no final uma mensagem.</h1>
-    <p>Ex:</p>
-    <p>Nome do Funcionário: Maria do Carmo</p>
-    <p>Salário: 1850,45</p>
-    <p>O funcionário Maria do Carmo tem um salário de R$1850,45 em Junho.</p>
+
+    <form id="wageForm">
+        <label for="name">Qual o nome do Funcionário?</label>
+        <input type="text" id="name" required><br><br>
+        <label for="wage">Qual o salário do Funcionário?</label>
+        <input type="number" id="wage" required><br><br>
+        <button type="button" onclick="showWageMenssage()">Clique aqui para erxibir menssagem</button>
+    </form>
+    
+    <b><p id='wageMenssage'></p></b>
+
     <Script>
-        let employee = prompt("Qual o nome do funcionário?");
+        function showWageMenssage(){
+            let name = document.getElementById("name").value;
+            let wage = document.getElementById("wage").value;
+            let wageMenssage = document.getElementById('wageMenssage');
+            wageMenssage.textContent = `O funcionário(a) ${name} tem um salário de R$${wage} em agosto.`
+        }
+        
+       /*  let employee = prompt("Qual o nome do funcionário?");
         let wage = prompt("Informe o salário:");
 
-        alert(`O funcionário ${employee} tem um salário de R$${wage} em Agosto.`)
+        alert(`O funcionário ${employee} tem um salário de R$${wage} em Agosto.`) */
     </Script>
 </body>
 </html>

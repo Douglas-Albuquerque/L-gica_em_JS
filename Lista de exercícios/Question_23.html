@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+</head>
+<body>
+    <h1>Lógica de Programação em Javascript</h1>
+    <h1>Numa promoção exclusiva para o Dia da Mulher, uma loja quer dar descontos 
+        para todos, mas especialmente para mulheres. Faça um programa que leia nome, 
+        sexo e o valor das compras do cliente e calcule o preço com desconto. Sabendo 
+        que:</h1>
+    <p>Homens ganham 5% de desconto</p>
+    <p>Mulheres ganham 13% de desconto</p>
+    <Script>
+
+        let gender = prompt('Qual o gênero do cliente?');
+        let buy = prompt('Qual o valor da compra do cliente?');
+        discount();
+        
+        function discount(){
+            if(gender === 'Masculino'){
+                let disc = buy -(buy * 0.05);
+                alert(`O valor da compra com desconto é de R$${disc}`);
+            }else if(gender === 'Feminino'){
+                let disc = buy -(buy * 0.13);
+                alert(`O valor da compra com desconto é de R$${disc}`);
+            }else{
+                alert('Você inseriu um genero inválido');
+            };
+        };
+
+        
+        
+    </Script>
+</body>
+</html>
