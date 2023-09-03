@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lógica de Programação em JS</title>
 </head>
+
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1>Faça um programa que leia as duas notas de um aluno em uma matéria e mostre na tela a sua média na disciplina.</h1>
-    <p>Ex:</p>
-    <p>Nota 1: 4.5</p>
-    <p>Nota 2: 8.5</p>
-    <p>A média entre 4.5 e 8.5 é igual a 6.5</p>
-    <Script>
+    <form id="grades">
+        <label for="name">Qual o nome do aluno?</label>
+        <input type="text" id="name" required><br><br>
+        <label for="N1">Insira a primeira nota do Aluno:</label>
+        <input type="number" id="N1" required><br><br>
+        <label for="N2">Insira a primeira nota do Aluno:</label>
+        <input type="number" id="N2" required><br><br>
+        <button type="button" onclick="calculate()">Calcular média</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
 
-        let n1 = prompt("Digite a primeira nota");
+    <b><p id="calculateMedia"></p></b>
+    <Script>
+        function calculate(){
+            let name = document.getElementById("name").value;
+            let number1 = document.getElementById("N1").value;
+            let number2 = document.getElementById("N2").value;
+
+            let average = (parseFloat(number1) + parseFloat(number2)) /2;
+
+            if(Number.isInteger(average)){
+                average = Math.round(average);
+            }else{
+                average = average.toFixed(1)
+            }
+
+            document.getElementById("calculateMedia").innerHTML = `A média do Aluno(a) <span style="font-size: 20px; color: gray">${name}</span> é <span style="font-size: 20px; color: blue">${average}</span>`
+        }
+        function clearResult(){
+            document.getElementById("calculateMedia").textContent = "";
+            document.getElementById("N1").value = "";
+            document.getElementById("N2").value = "";
+            document.getElementById("name").value = "";
+        }
+
+
+         //PRIMEIRO MÉTODO USADO.
+        /* let n1 = prompt("Digite a primeira nota");
         let n2 = prompt("Digite a segunda nota");
         let med = media();
 
@@ -23,7 +56,8 @@
             return media 
         }
 
-        alert(`A média entre ${n1} e ${n2} é igual a ${med}`)
+        alert(`A média entre ${n1} e ${n2} é igual a ${med}`) */
     </Script>
 </body>
+
 </html>

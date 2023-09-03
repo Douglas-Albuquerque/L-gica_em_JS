@@ -7,14 +7,46 @@
 </head>
 <body>
     <h1>Lógica de Programação em Javascript</h1>
-    <h1>4- Desenvolva um algoritmo que leia dois números inteiros e mostre o somatório entre eles.</h1>
-    <p>Ex:</p>
-    <p>Digite um valor: 8</p>
-    <p>Digite outro valor: 5</p>
-    <p>A soma entre 8 e 5 é igual a 13</p>
-    <Script>
+    <h1>Desenvolva um algoritmo que leia dois números inteiros e mostre o somatório entre eles.</h1>
 
-        let n1 = prompt("Digite o 1° numero");
+    <form id="number">
+        <label for="number1">Insira o um número inteiro:</label>
+        <input type="number" id="N1" required><br><br>
+        <label for="number2">Insira o outro número inteiro:</label>
+        <input type="number" id="N2" required><br><br>
+        <button type="button" onclick="calculate()">Calcular</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+
+    <b><p id="calculateSum"></p></b>
+    <Script>
+        function calculate(){
+            let number1 = document.getElementById("N1").value;
+            let number2 = document.getElementById("N2").value;
+
+            if(!isIntegerString(number1) || !isIntegerString(number2)){
+                alert("Insira dois números inteiros.");
+                return;
+            };
+
+            let sum = parseInt(number1) + parseInt(number2);
+
+            document.getElementById("calculateSum").innerHTML = `A soma dos dois números é <span style="font-size: 22px; color: red">${sum}</span>`; 
+        
+        }
+        function clearResult() {
+            document.getElementById("calculateSum").textContent = "";
+            document.getElementById("N1").value = ""
+            document.getElementById("N2").value = ""
+        }
+        
+        function isIntegerString(value) {
+        // Verifica se a string é um número inteiro válido
+        return /^\d+$/.test(value);
+        }
+
+        //PRIMEIRO MÉTODO USADO.
+        /* let n1 = prompt("Digite o 1° numero");
         let n2 = prompt("Digite o 2° numero");
         let sum = result();
 
@@ -23,7 +55,7 @@
             return sum0;
         };
 
-        alert(`A soma entre ${n1} e ${n2} é igual a ${sum}`);
+        alert(`A soma entre ${n1} e ${n2} é igual a ${sum}`); */
     </Script>
     
 </body>
