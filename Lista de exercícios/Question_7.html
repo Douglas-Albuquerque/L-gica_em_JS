@@ -8,12 +8,32 @@
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1>Crie um algoritmo que leia um número real e mostre na tela o seu dobro e a sua terça parte.</h1>
-    <p>Ex:</p>
-    <p>Digite um número: 3.5</p>
-    <p>O dobro de 3.5 é 7.0</p>
-    <p>A terça parte de 3.5 é 1.16666</p>
+
+    <form id="number">
+        <label for="text">Insira um número</label>
+        <input type="number" id="N1" required></form></body></br></br>
+        <button type="button" onclick="show()">Exibir</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+    <b><p id="showResult"></p></b>
     <Script>
-        let N = prompt("Insira um número!");
+        function show(){
+            let number = document.getElementById("N1").value;
+
+            let double = parseFloat(number) * 2;
+            let third = parseFloat(number) / 3;
+
+            document.getElementById("showResult").innerHTML = `O dobro de <span style="color: red">${number}</span> é <span style="color: blue">${double}</span> e a terça parte é <span style="color: blue">${third.toFixed(2)}</span>.`;
+        };
+
+        function clearResult(){
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("N1").value = "";
+        };
+
+
+       //Código inicialmente útilizado.
+       /*  let N = prompt("Insira um número!");
         let D = dob();
         let T = ter();
 
@@ -27,7 +47,7 @@
         };
 
         alert(`o dobro de ${N} é ${D}`);
-        alert(` a terça parte de ${N} é ${T}`);
+        alert(` a terça parte de ${N} é ${T}`); */
 
     </Script>
 </body>

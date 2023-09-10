@@ -9,11 +9,35 @@
     <h1>Lógica de Programação em Javascript</h1>
     <h1>Faça um algoritmo que leia a largura e altura de uma parede, calcule e </br>
         mostre a área a ser pintada e a quantidade de tinta necessária para o serviço,</br>  
-        sabendo que cada litro de tinta pinta uma área de 2metros quadrados.</h1>
-    
+        sabendo que cada litro de tinta pinta uma área de 2 metros quadrados.</h1>
+    <form id="paint">
+        <label for="text">Qual a altura da parede a ser pintada?</label>
+        <input type="number" id="alt" required><br><br>
+        <label for="text">Qual a largura da parede a ser pintada?</label>
+        <input type="number" id="lar" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+    <b><p id="showResult"></p></b>
     <Script>
+        function show(){
+            let height = document.getElementById("alt").value;
+            let width = document.getElementById("lar").value;
 
-        let A = prompt("Qual a altura da parede a ser pintda?");
+            let area = height * width;
+            let liters = area / 2;
+
+            document.getElementById("showResult").innerHTML = `
+            A área da parede a ser pintada é de ${area} metros e a quantidade de tinta necessária para pintá-la é de ${liters} litros.
+            `;
+        };
+        function clearResult(){
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("alt").value = "";
+            document.getElementById("lar").value = "";
+        };
+        //Código inicialmente utilizado.
+        /* let A = prompt("Qual a altura da parede a ser pintda?");
         let L = prompt("Qual a largura da parede a ser pintda?");
         let Area = ar();
         let Lit = litros();
@@ -27,7 +51,7 @@
             return litros1;
         };
 
-        alert(`A área da parede informada é de ${Area} metros e a quantidade de tinta necessária para pintá-la é de ${Lit} litros`);
+        alert(`A área da parede informada é de ${Area} metros e a quantidade de tinta necessária para pintá-la é de ${Lit} litros`); */
         
     </Script>
 </body>

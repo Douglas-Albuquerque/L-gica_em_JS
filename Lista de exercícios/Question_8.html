@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lógica de Programação em JS</title>
 </head>
+
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1> Desenvolva um programa que leia uma distância em metros e mostre os valores relativos em outras medidas.</h1>
-    <p>Ex:</p>
-    <p>Digite uma distância em metros: 185.72</p>
-    <p>A distância de 85.7m corresponde a:</p>
-    <p>0.18572Km </p>
-    <p>1857.2dm</p>
-    <p>1.8572Hm</p>            
-    <p>18572.0cm</p>
-    <p>18.572Dam</p>           
-    <p>185720.0mm</p>
+    
+    <form id="distance">
+        <label for="text">Insira uma distância em metros.</label>
+        <input type="number" id="N1" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+
+    <b>
+        <p id="showResult"></p>
+    </b>
+
     <Script>
-        let D = prompt("Digite uma distância em metros");
+        function show() {
+            let number1 = document.getElementById("N1").value;
+
+            let Km = number1 / 1000;
+            let dm = number1 * 10;
+            let Hm = number1 / 100;
+            let cm = number1 * 100;
+            let Dam = number1 / 10;
+            let mm = number1 * 1000;
+
+            document.getElementById("showResult").innerHTML = `
+            <p>A distância de <span style="color: red">${number1}m</span> corresponde a:</p>
+            <p><span style="color: blue">${Km}Km</span></p>
+            <p><span style="color: blue">${dm}dm</span></p>
+            <p><span style="color: blue">${Hm}Hm</span></p>
+            <p><span style="color: blue">${cm}cm</span></p>
+            <p><span style="color: blue">${Dam}Dam</span></p>
+            <p><span style="color: blue">${mm}mm</span></p>
+            `;
+        };
+
+
+        function clearResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("N1").value = "";
+        };
+        //Código inicialmente utilizado.
+        /* let D = prompt("Digite uma distância em metros");
         let Km = mToKm();
         let dm = mToDm();
         let Hm = mToHm();
@@ -59,7 +91,8 @@
             ${Dam} decâmetros\n
             ${mm} milímetros`
         );
-
+ */
     </Script>
 </body>
+
 </html>

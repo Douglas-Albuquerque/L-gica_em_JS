@@ -8,12 +8,44 @@
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1>Faça um programa que leia um número inteiro e mostre o seu antecessor e seu sucessor</h1>
-    <p>Ex:</p>
-    <p>Digite um número: 9</p>
-    <p>O antecessor de 9 é 8</p>
-    <p>O sucessor de 9 é 10</p>
+    
+    <form id="number">
+        <label for="text">Insira um número inteiro</label>
+        <input type="number" id="N1" required></form></br></br>
+        <button type="button" onclick="show()">Exibir</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+    <b><p id="shownumber"></p></b>
     <Script>
-        let N = prompt("Insira um número!");
+
+        function show(){
+            let number1 = document.getElementById("N1").value;
+
+            if(!isIntegerString(number1)){
+                alert('Insira um número inteiro.');
+                return;
+            };
+
+            let predecessor = parseInt(number1) - 1;
+            let successor = parseInt(number1) + 1;
+
+            document.getElementById("shownumber").innerHTML = `O numero antecessor de <span style="color: red">${number1}</span> é  
+            <span style="color: red">${predecessor}</span> e o sucessor é <span style="color: red">${successor}.</span>`
+
+        };
+        function clearResult(){
+            document.getElementById("shownumber").textContent = "";
+            document.getElementById("N1").value = "";
+        };
+        function isIntegerString(value){
+            return /^\d+$/.test(value);
+        };
+
+
+
+
+
+        /* let N = prompt("Insira um número!");
         let A = ant();
         let S = suc();
 
@@ -27,7 +59,7 @@
         };
 
         alert(`O antecessor de ${N} é ${A}`);
-        alert(`O sucessor de ${N} é ${S}`);
+        alert(`O sucessor de ${N} é ${S}`); */
         
     </Script>
 </body>

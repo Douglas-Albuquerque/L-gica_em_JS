@@ -10,20 +10,42 @@
     <h1>Faça um algoritmo que leia quanto dinheiro uma pessoa tem na carteira (em R$)</br> 
         e mostre quantos dólares ela pode comprar. Considere US$1,00 = R$4,97.</h1>
 
+    <form id="money">
+        <label for="text">Insira o valor em reais que deseja converter em dólar</label>
+        <input type="number" id="N1" required><br><br>
+        <button type="button" onclick="show()">Converter</button>
+        <button type="button" onclick="clearResult()">Limpar</button>
+    </form>
+    <b><p id="showResult"></p></b>
     <Script>
+        function show(){
+            let number1 = document.getElementById("N1").value;
 
-        let D = prompt("Insira qual valor você deseja converter de reais para dólar");
+            let convert = number1 / 4.97;
+            let dolar = Math.round(convert);
+
+            document.getElementById("showResult").innerHTML = `
+            O Valor de R$${number1} convertido em dólar é de: $${dolar.toFixed(2)};
+            `;
+        };
+
+        function clearResult(){
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("N1").value = "";
+        };
+        //Código usado na resoluçào anterior
+        /* let D = prompt("Insira qual valor você deseja converter de reais para dólar");
         let Convert = conv(); 
         
         function conv(){
-            let convert1 = D * 4.97;
+            let convert1 = D / 4.97;
             let total = Math.round(convert1);
             return convert1.toFixed(2)
-            //O Math.round arredonda o numero deixando eliminando as casas decimais.
+            //O Math.round arredonda o numero.
             //Utilizei o metodo .toFixed que arredonda os numeros pra cima 
             //neste caso utilizei o toFixed(2) para mostrar as duas casas decimais após a virgula.
         };
-        alert(`O valor de R$${D} convertido para Dólar com a cotação de R$4,97 por Dólar é: $${Convert}`);
+        alert(`O valor de R$${D} convertido para Dólar com a cotação de R$4,97 por Dólar é: $${Convert}`); */
 
     </Script>
 </body>

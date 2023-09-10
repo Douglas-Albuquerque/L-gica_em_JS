@@ -8,11 +8,29 @@
 <body>
     <h1>Lógica de Programação em Javascript</h1>
     <h1>Faça um algoritmo que leia o salário de um funcionário, calcule e mostre o 
-        seu novo salário, com 15% de aumento.</h1>
-
+        seu novo salário, com 4% de aumento.</h1>
+    <form id="wage">
+        <label for="text">Insira o salário do funcionário.</label>
+        <input type="number" id="n1" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="cleaResult()">Limpar</button>
+    </form>
+    <b><p id="showResult"></p></b>
     <Script>
+        function show(){
+            let currentWage = document.getElementById("n1").value;
 
-        let wage = prompt("Informe o salário:");
+            let increasePercentage = (currentWage*4) / 100;
+            let increase = parseFloat(currentWage) + parseFloat(increasePercentage);
+
+            document.getElementById("showResult").innerHTML = `O valor do salário com 4% de aumento é R$${increase}`;
+        };
+        function cleaResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("n1").value = "";
+        };
+        //código inicialmente utilizado.
+        /* let wage = prompt("Informe o salário:");
         let increase = d();
 
         function d(){
@@ -20,7 +38,7 @@
             let increase2 = parseFloat(wage) + parseFloat(increase1);
             return increase2.toFixed(2);
         };
-        alert(`O valor do salário com 15% de aumento é R$${increase}`);
+        alert(`O valor do salário com 15% de aumento é R$${increase}`); */
         
     </Script>
     </Script>
