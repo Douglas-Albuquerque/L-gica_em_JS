@@ -12,9 +12,30 @@
     <h1>Escreva um programa que pergunte a velocidade de um carro. Caso ultrapasse
         80Km/h, exiba uma mensagem dizendo que o usuário foi multado. Nesse caso, exiba
         o valor da multa, cobrando R$5 por cada Km acima da velocidade permitida.</h1>
-
+    <form id="speedRacer">
+        <label for="text">A quantos quilômetros o carro passou?</label>
+        <input type="number" id="carSpeed" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="cleaResult()">Limpar</button>
+    </form>
+    <b>
+        <p id="showResult"></p>
+    </b>
     <Script>
-        let speed = prompt("Qual a velocidade do carro?");
+        function show() {
+            let speed = document.getElementById("carSpeed").value;
+            if(speed > 80){
+                let price = (speed - 80) * 5
+                document.getElementById("showResult").innerHTML = `O veículo ultrapassou o limite de velocidade e o condutor terá que pagar R$${price} de multa.` 
+            }else{
+                document.getElementById("showResult").innerHTML = `O veículo não ultrapassou o limite de velocidade.` 
+            };
+        };
+        function cleaResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("carSpeed").value = "";
+        };
+    /*let speed = prompt("Qual a velocidade do carro?");
         yourFine(speed);
         
         
@@ -25,7 +46,7 @@
             } else {
                 alert("Você escapou!!!");
             };
-        };
+        };*/
     </Script>
 </body>
 

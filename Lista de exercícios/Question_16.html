@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lógica de Programação em JS</title>
 </head>
+
 <body>
     <h1>Lógica de Programação em Javascript</h1>
-    <h1>Escreva um programa para calcular a redução do tempo de vida de um 
-        fumante. Pergunte a quantidade de cigarros fumados por dias e quantos anos ele 
-        já fumou. Considere que um fumante perde 10 min de vida a cada cigarro. Calcule 
+    <h1>Escreva um programa para calcular a redução do tempo de vida de um
+        fumante. Pergunte a quantidade de cigarros fumados por dias e quantos anos ele
+        já fumou. Considere que um fumante perde 10 min de vida a cada cigarro. Calcule
         quantos dias de vida um fumante perderá e exiba o total em dias</h1>
-    
-    <Script>
+    <form id="death">
+        <label for="text">Quantos cigarros você fuma por dia?</label>
+        <input type="number" id="cigarettes" required><br><br>
+        <label for="text">E a quantos anos você fuma?</label>
+        <input type="number" id="years" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="cleaResult()">Limpar</button>
+    </form>
+    <b>
+        <p id="showResult"></p>
+    </b>
 
-        let cigarettes = prompt("Quantos cigarros você fuma por dia?");
+    <Script>
+        function show() {
+            let cigar = document.getElementById("cigarettes").value;
+            let year = document.getElementById("years").value;
+
+            let cigarInDays = cigar * (year * 365);
+            let cigarInMinutes = cigarInDays * 10;
+            let daysOfDeath = cigarInMinutes / 1440;
+            let yearOfDeath = daysOfDeath / 365;
+
+            document.getElementById("showResult").innerHTML = `
+            Com a quantidade que você fumou nos ultimos anos você perdeu ${parseInt(daysOfDeath)} 
+            dias de vida que totalizam ${yearOfDeath.toLocaleString("pt-BR",{
+                maximumFractionDigits: 1,
+            })} anos
+            `;
+        };
+        function cleaResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("cigarettes").value = "";
+            document.getElementById("years").value = "";
+        };
+        /* let cigarettes = prompt("Quantos cigarros você fuma por dia?");
         let years = prompt("A quantos anos você fuma?");
         let days = deathTime();
         let deadYears = yearsOfDeath();
 
-        function deathTime(){
-            let cigInDays = cigarettes * (years*365);
+        function deathTime() {
+            //converte anos em dias e multiplica pela quantidade de cigarros para saber o total de cigarros
+            let cigInDays = cigarettes * (years * 365);
+            //multiplica o total de cigarros pelo minutos perdidos para saber quantos minutos de vida perdidos
             let cigInMinutes = cigInDays * 10;
+            //transforma a quantidade de minutos perdidos em dias.
             let daysOfDeath = cigInMinutes / 1440;
             return daysOfDeath.toFixed(2);
         };
         //adicionei a conversão do resultado em anos para deixar a questão mais completa.
-        function yearsOfDeath(){
+        function yearsOfDeath() {
             let y = days / 365;
             return parseInt(y);
         };
 
-        alert(`Com a quantidade que você fumou nos ultimos anos você perdeu ${days} dias de vida que totalizam ${deadYears} anos`);
-        
+        alert(`Com a quantidade que você fumou nos ultimos anos você perdeu ${days} dias de vida que totalizam ${deadYears} anos`); */
+
 
     </Script>
 </body>
+
 </html>

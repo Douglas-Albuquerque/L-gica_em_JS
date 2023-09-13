@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lógica de Programação em JS</title>
 </head>
+
 <body>
     <h1>Lógica de Programação em Javascript</h1>
-    <h1> A locadora de carros precisa da sua ajuda para cobrar seus serviços.</br> Escreva 
-        um programa que pergunte a quantidade de Km percorridos por um carro alugado e a 
-        quantidade de dias pelos quais ele foi alugado.</br> Calcule o preço total a pagar, 
+    <h1> A locadora de carros precisa da sua ajuda para cobrar seus serviços.</br> Escreva
+        um programa que pergunte a quantidade de Km percorridos por um carro alugado e a
+        quantidade de dias pelos quais ele foi alugado.</br> Calcule o preço total a pagar,
         sabendo que o carro custa R$90 por dia e R$0,20 por Km rodado</h1>
-    
+    <form id="rentCar">
+        <label for="text">Insira a quatidade de quilometros percorridos e por quantos dias o veículo foi locado.</label><br><br>
+        <label for="text">Km:</label>
+        <input type="number" id="km" required><br><br>
+        <label for="text">Dias:</label>
+        <input type="number" id="days" required><br><br>
+        <button type="button" onclick="show()">Calcular</button>
+        <button type="button" onclick="cleaResult()">Limpar</button>
+    </form>
+    <b>
+        <p id="showResult"></p>
+    </b>
     <Script>
-        let km = prompt("Quantos quilometros o cliente rodou com o carro?");
+        function show(){
+            let km = document.getElementById("km").value;
+            let days = document.getElementById("days").value;
+
+            let totalPrice = parseFloat(days*90) + parseFloat(km*0.20);
+
+            document.getElementById("showResult").innerHTML = `O valor total a pagar é R$${totalPrice}` 
+        };
+        function cleaResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("km").value = "";
+            document.getElementById("days").value = "";
+        };
+        // código utilizado anteriormente.
+        /* let km = prompt("Quantos quilometros o cliente rodou com o carro?");
         let days = prompt("Por quantos dias o cliente alugou o carro?");
         let total = price();
 
@@ -22,8 +49,9 @@
             return total;
         };
 
-        alert(`O valor total a pagar é R$${total}`);
+        alert(`O valor total a pagar é R$${total}`); */
 
     </Script>
 </body>
+
 </html>
