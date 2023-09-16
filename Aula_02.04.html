@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+        .hideDiv{
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 5px 0 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        .boldText{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">Crie um programa em que o professor insira as notas anuais do aluno,
+            a media seja calculada e mostre se o aluno foi aprovado caso a media seja superior ou igual a 7.
+        </p>
+        <p>
+            Desafio: insira um botão em que caso o aluno tenha feito um trabalho extra 
+            o professor possa inserir essa nota e a media passe a ser considerada com uma nota a mais.
+        </p>
+
+        <form class="boldText" id="general">
+            <label for="nota1">Insira a nota do priemiro bimestre:</label>
+            <input type="text" id="nota1" required><br><br>
+            <label for="nota2">Insira a nota do segundo bimestre:</label>
+            <input type="text" id="nota2" required><br><br>
+            <label for="nota3">Insira a nota do terceiro bimestre:</label>
+            <input type="text" id="nota3" required><br><br>
+            <label for="nota4">Insira a nota do quarto bimestre:</label>
+            <input type="text" id="nota4" required><br><br>
+
+            <button id="buttonHide" type="button" onclick="trabalhoExtra()">Fez um trabalho extra?</button>
+            <div class="hideDiv" id="extra" style="display: none;">
+                <label for="notaExtra">Insira a nota do trabalho extra:</label>
+                <input type="text" id="notaExtra"><br><br>
+            </div>
+
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button type="button" onclick="clearResult()">Limpar</button>
+        </form>
+
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function trabalhoExtra() {
+            let extraDiv = document.getElementById("extra");
+            let extraBut = document.querySelector('button[onclick="trabalhoExtra()"]');
+
+            if(extraDiv.style.display === "none") {
+                extraDiv.style.display = "block";
+                extraBut.textContent = "Não fez um trabalho extra.";
+            }else{
+                extraDiv.style.display = "none";
+                extraBut.textContent = "Fez um trabalho extra?"
+            };
+        };
+
+        function calculate() {
+            let n1 = document.getElementById("nota1").value;
+            let n2 = document.getElementById("nota2").value;
+            let n3 = document.getElementById("nota3").value;
+            let n4 = document.getElementById("nota4").value;
+
+            let notaExtra = 0;
+            if(document.getElementById("extra").style.display !== "none"){
+                notaExtra = parseFloat(document.getElementById("notaExtra").value);
+            }
+            
+            let divisor = notaExtra > 0 ? 5 : 4;
+
+            let media = (parseFloat(n1)  + parseFloat(n2) + parseFloat(n3) + parseFloat(n4) + parseFloat(notaExtra)) / divisor;
+
+            if (media > 7) {
+
+                document.getElementById("showResult").innerHTML = `A média do aluno foi <span style="font-weigth: bold; color: #0000FF">
+                    ${media.toLocaleString("pt-BR", { maximumFractionDigits: 1, })}</span>
+                e ele foi <span style="font-weigth: bold; color: #0000FF"> APROVADO</span>
+                `;
+            } else {
+
+                document.getElementById("showResult").innerHTML = `A média do aluno foi <span style = "font-weigth: bold; color: #FF0000"> 
+                ${media.toLocaleString("pt-BR", { maximumFractionDigits: 1, })}</span>
+                    e ele foi <span style="font-weigth: bold; color: #FF0000"> REPROVADO</span>
+                `;
+            };
+        }
+
+        function clearResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("nota1").value = "";
+            document.getElementById("nota2").value = "";
+            document.getElementById("nota3").value = "";
+            document.getElementById("nota4").value = "";
+            document.getElementById("notaExtra").value = "";
+            document.getElementById("extra").style.display = "none";
+            document.getElementById("buttonHide").textContent = "Fez um trabalho extra?";
+        }
+    </script>
+</body>
+
+</html>

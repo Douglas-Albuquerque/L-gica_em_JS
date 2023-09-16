@@ -78,15 +78,16 @@
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText">Crie um programa que leia o tamanho de três segmentos de reta.
-            Analise seus comprimentos e diga se é possível formar um triângulo com essas
-            retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento
-            de cada lado deve ser menor que a soma dos outros dois.</p>
+        <p class="containerText">Crie um programa que leia o número de dois jogadores, 
+            crie uma lógica que sorteie um numero entre 0 e 1 caso o número sorteado for 0 
+            o jogador que escolheu o menor numero vence e se for 1 o jogador que escolheu o maior número vence,
+            caso os numeros escolhido por ambos os jogadores sejam iguais mostre "Empate!!".
+        </p>
 
         <form id="general">
-            <label for="player1">Insira o tamanho da primeira reta?</label>
+            <label for="player1">Jogador 1 insira seu número:</label>
             <input type="text" id="player1" required><br><br>
-            <label for="player2">Insira o tamanho da segunda reta?</label>
+            <label for="player2">Jogador 2 insira seu número:</label>
             <input type="text" id="player2" required><br><br>
             <button type="button" onclick="calculate()">Calcular</button>
             <button type="button" onclick="clearResult()">Limpar</button>
@@ -97,18 +98,33 @@
 
     <script>
         function calculate() {
-            let retaA = document.getElementById("player1").value;
-            let retaB = document.getElementById("player2").value;
-            ;
+            let n1 = document.getElementById("player1").value;
+            let n2 = document.getElementById("player2").value;
 
-            if (retaA < retaB + retaC && retaB < retaA + retaC) {
-
-                document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo.`;
+            if (n1 === n2) {
+                document.getElementById("showResult").innerHTML = `Empate!!`;
             } else {
 
-                document.getElementById("showResult").innerHTML = `Os valores informados <span style="font-weigth: bold; color: #FF0000">NÃO</span> é formam um triângulo.`;
+                let randomN = parseInt(Math.random() * 2);
+                console.log(randomN);
+                
+                if (randomN === 0) {
+
+                    if (n1 < n2) {
+                        document.getElementById("showResult").innerHTML = `Jogador 1 venceu`;
+                    } else {
+                        document.getElementById("showResult").innerHTML = `Jogador 2 venceu`;
+                    };
+
+                } else {
+                    if (n1 > n2) {
+                        document.getElementById("showResult").innerHTML = `Jogador 1 venceu`;
+                    } else {
+                        document.getElementById("showResult").innerHTML = `Jogador 2 venceu`;
+                    };
+                }
             };
-        }
+        };
 
         function clearResult() {
             document.getElementById("showResult").textContent = "";

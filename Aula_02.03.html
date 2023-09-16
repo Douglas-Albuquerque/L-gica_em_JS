@@ -46,7 +46,7 @@
         input[type="text"] {
             width: 20%;
             padding: 10px;
-            margin: 5px 0 5px 0;
+            margin: 15px 0 15px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -78,16 +78,16 @@
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText">Crie um programa que leia o tamanho de três segmentos de reta.
-            Analise seus comprimentos e diga se é possível formar um triângulo com essas
-            retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento
-            de cada lado deve ser menor que a soma dos outros dois.</p>
+        <p class="containerText">Peça que o usuário insira dois numeros e converta-os em numeros inteiros,
+            depois mostre o resto da divisão destes dois números e o resultado do primeiro número elevado ao segundo
+            número.
+        </p>
 
         <form id="general">
-            <label for="player1">Insira o tamanho da primeira reta?</label>
-            <input type="text" id="player1" required><br><br>
-            <label for="player2">Insira o tamanho da segunda reta?</label>
-            <input type="text" id="player2" required><br><br>
+            <label for="n1">Insira o primeiro número:</label>
+            <input type="text" id="n1" required><br><br>
+            <label for="n2">Insira o segundo número:</label>
+            <input type="text" id="n2" required><br><br>
             <button type="button" onclick="calculate()">Calcular</button>
             <button type="button" onclick="clearResult()">Limpar</button>
         </form>
@@ -97,24 +97,22 @@
 
     <script>
         function calculate() {
-            let retaA = document.getElementById("player1").value;
-            let retaB = document.getElementById("player2").value;
-            ;
+            let number1 = document.getElementById("n1").value;
+            let number2 = document.getElementById("n2").value;
+            let mod = parseInt(number1) % parseInt(number2);
+            let exp = parseInt(number1) ** parseInt(number2);
 
-            if (retaA < retaB + retaC && retaB < retaA + retaC) {
-
-                document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo.`;
-            } else {
-
-                document.getElementById("showResult").innerHTML = `Os valores informados <span style="font-weigth: bold; color: #FF0000">NÃO</span> é formam um triângulo.`;
-            };
+            document.getElementById("showResult").innerHTML = `
+                <p> O resto da divisão de ${number1} por ${number2} é: <span style="font-weigth: bold; color: #0000FF">${mod}</span></p>
+                <p> O número ${number1} elevado a ${number2} é: <span style="font-weigth: bold; color: #0000FF">${exp}</span></p>
+            `;
         }
 
         function clearResult() {
             document.getElementById("showResult").textContent = "";
-            document.getElementById("player1").value = "";
-            document.getElementById("player2").value = "";
-        };
+            document.getElementById("n1").value = "";
+            document.getElementById("n2").value = "";
+        }
     </script>
 </body>
 

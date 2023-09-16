@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,19 +13,18 @@
         }
 
         .container {
-            width: 80%;
-            margin: 0 auto;
+            width: 80%; 
+            margin: 0 auto; 
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            text-align: center; 
         }
-
         .containerText {
-            width: 70%;
-            margin: 10px auto;
-            text-align: center;
+            width: 70%; 
+            margin: auto; 
+            text-align: center; 
         }
 
         h1 {
@@ -46,7 +44,7 @@
         input[type="text"] {
             width: 20%;
             padding: 10px;
-            margin: 5px 0 5px 0;
+            margin: 15px 0 15px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -74,20 +72,21 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText">Crie um programa que leia o tamanho de três segmentos de reta.
-            Analise seus comprimentos e diga se é possível formar um triângulo com essas
-            retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento
+        <p class="containerText">Crie um programa que leia o tamanho de três segmentos de reta. 
+            Analise seus comprimentos e diga se é possível formar um triângulo com essas 
+            retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento 
             de cada lado deve ser menor que a soma dos outros dois.</p>
-
+        
         <form id="general">
-            <label for="player1">Insira o tamanho da primeira reta?</label>
-            <input type="text" id="player1" required><br><br>
-            <label for="player2">Insira o tamanho da segunda reta?</label>
-            <input type="text" id="player2" required><br><br>
+            <label for="a">Insira o tamanho da primeira reta?</label>
+            <input type="text" id="a" required><br><br>
+            <label for="b">Insira o tamanho da segunda reta?</label>
+            <input type="text" id="b" required><br><br>
+            <label for="c">Insira o tamanho da terceira reta?</label>
+            <input type="text" id="c" required><br><br>
             <button type="button" onclick="calculate()">Calcular</button>
             <button type="button" onclick="clearResult()">Limpar</button>
         </form>
@@ -97,25 +96,25 @@
 
     <script>
         function calculate() {
-            let retaA = document.getElementById("player1").value;
-            let retaB = document.getElementById("player2").value;
-            ;
-
-            if (retaA < retaB + retaC && retaB < retaA + retaC) {
-
+            let retaA = document.getElementById("a").value;
+            let retaB = document.getElementById("b").value;
+            let retaC = document.getElementById("c").value;
+        
+            if (retaA < retaB + retaC && retaB < retaA + retaC && retaC < retaA + retaB) {
+                
                 document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo.`;
             } else {
-
+                
                 document.getElementById("showResult").innerHTML = `Os valores informados <span style="font-weigth: bold; color: #FF0000">NÃO</span> é formam um triângulo.`;
             };
         }
 
         function clearResult() {
             document.getElementById("showResult").textContent = "";
-            document.getElementById("player1").value = "";
-            document.getElementById("player2").value = "";
-        };
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+        }
     </script>
 </body>
-
 </html>
