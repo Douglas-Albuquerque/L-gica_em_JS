@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+        .clearButton {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton:hover {
+            background-color: #b30000;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">Crie um programa que leia o tamanho de três segmentos de reta.
+            Analise seus comprimentos e diga se é possível formar um triângulo com essas
+            retas. Matematicamente, para três segmentos formarem um triângulo, o comprimento
+            de cada lado deve ser menor que a soma dos outros dois.</p>
+            <p>
+                [DESAFIO] Refaça o algoritmo 25, acrescentando o recurso de mostrar que tipo 
+                de triângulo será formado: 
+            </p>
+            <p>- EQUILÁTERO: todos os lados iguais</p>
+            <p>- ISÓSCELES: dois lados iguais</p>
+            <p>- ESCALENO: todos os lados diferente</p>
+
+        <form id="general">
+            <label for="a">Insira o tamanho da primeira reta?</label>
+            <input type="text" id="a" required><br><br>
+            <label for="b">Insira o tamanho da segunda reta?</label>
+            <input type="text" id="b" required><br><br>
+            <label for="c">Insira o tamanho da terceira reta?</label>
+            <input type="text" id="c" required><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+        </form>
+
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+     function calculate() {
+    let retaA = parseFloat(document.getElementById("a").value);
+    let retaB = parseFloat(document.getElementById("b").value);
+    let retaC = parseFloat(document.getElementById("c").value);
+
+    if (!isNaN(retaA) && !isNaN(retaB) && !isNaN(retaC)) {
+        if (retaA < retaB + retaC && retaB < retaA + retaC && retaC < retaA + retaB) {
+            if (retaA === retaB && retaB === retaC) {
+                document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo equilátero.`;
+            } else if (retaA === retaB || retaB === retaC || retaA === retaC) {
+                document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo isósceles.`;
+            } else {
+                document.getElementById("showResult").innerHTML = `Os valores informados podem formar um triângulo escaleno.`;
+            }
+        } else {
+            document.getElementById("showResult").innerHTML = `Os valores informados <span style="font-weight: bold; color: #FF0000">NÃO</span> formam um triângulo.`;
+        }
+    } else {
+        document.getElementById("showResult").innerHTML = `Por favor, insira valores numéricos válidos.`;
+    }
+}
+
+
+        function clearResult() {
+            document.getElementById("showResult").innerHTML = "";
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+        }
+    </script>
+</body>
+
+</html>

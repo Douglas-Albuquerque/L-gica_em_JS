@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .hideDiv {
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 5px 0 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .boldText {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Crie um programa que leia duas notas de um aluno e calcule a sua média,
+            mostrando uma mensagem no final, de acordo com a média atingida:
+        </p>
+        <p>- Média até 4.9: REPROVADO</p>
+        <p>- Média entre 5.0 e 6.9: RECUPERAÇÃO</p>
+        <p>- Média 7.0 ou superior: APROVADO</p>
+
+        <form class="boldText" id="general">
+            <label for="nota1">Insira a primeira nota:</label>
+            <input type="text" id="nota1" required><br><br>
+            <label for="nota2">Insira a segunda nota:</label>
+            <input type="text" id="nota2" required><br><br>
+
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button type="button" onclick="clearResult()">Limpar</button>
+        </form>
+
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let n1 = document.getElementById("nota1").value;
+            let n2 = document.getElementById("nota2").value;
+
+            let media = (parseFloat(n1) + parseFloat(n2)) / 2;
+
+            if (media <= 4.9) {
+                document.getElementById("showResult").innerHTML = `
+                A média do aluno foi ${media.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} e ele está <span style="font-weigth: bold; color: #FF0000">REPROVADO</span>
+                `
+            } else if (media >= 7.0) {
+                document.getElementById("showResult").innerHTML = `
+                    A média do aluno foi ${media.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} e ele está <span style="font-weigth: bold; color: #0000FF">APROVADO</span>
+                `
+            } else {
+                document.getElementById("showResult").innerHTML = `
+                    A média do aluno foi${media.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} e ele está em <span style="font-weigth: bold; color: #ffb11b">RECUPERAÇÃO</span>
+                `
+
+            };
+
+
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("nota1").value = "";
+            document.getElementById("nota2").value = "";
+        }
+    </script>
+</body>
+
+</html>

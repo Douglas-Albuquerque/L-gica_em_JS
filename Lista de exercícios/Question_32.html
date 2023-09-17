@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+        .clearButton {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton:hover {
+            background-color: #b30000;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText"> 
+            [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o 
+            jogador vai tentar descobrir qual foi o valor sorteado.
+        </p>
+        <p>O computador sorteou um número entre 1 e 5. Tente adivinhar qual foi!</p>
+        <form id="general">
+            <input type="number" id="playerNumber" placeholder="Digite seu palpite">
+            <button type="button" onclick="numeroSorteado()">Adivinhar</button>
+            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+        </form>
+        <h2>Resultado:</h2>
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function getRandomNumber(){
+            return Math.floor(Math.random() * 5) + 1;
+        };
+        function numeroSorteado() {
+            let pcNumber = getRandomNumber();
+            let playerN = parseInt(document.getElementById("playerNumber").value);
+
+            if(isNaN(playerN) || playerN < 1 || playerN > 5){
+                document.getElementById("showResult").innerHTML = `Por favor, insira um número válido entre 1 e 5.`;
+            }else if(playerN === pcNumber){
+                document.getElementById("showResult").textContent = `Parabéns! Você acertou. O número era ${pcNumber}.`;
+            }else{
+                document.getElementById("showResult").textContent = `Tente novamente. O número correto era ${pcNumber}.`;
+            };
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").innerHTML = "";
+            document.getElementById("playerNumber").value = "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .hideDiv {
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 5px 0 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .boldText {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Desenvolva um programa que leia o nome de um funcionário, seu salário,
+            quantos anos ele trabalha na empresa e mostre seu novo salário, reajustado de
+            acordo com a tabela a seguir:
+        </p>
+        <p>- Até 3 anos de empresa: aumento de 3%</p>
+        <p>- entre 3 e 10 anos: aumento de 12.5%</p>
+        <p>- 10 anos ou mais: aumento de 20%</p>
+
+        <form class="boldText" id="general">
+            <label for="name">Insira nome do funcionário(a):</label>
+            <input type="text" id="name" required><br><br>
+            <label for="wage">Insira salário do funcionário(a):</label>
+            <input type="text" id="wage" required><br><br>
+            <label for="working">A quantos anos ele(a) trabalha na empresa?:</label>
+            <input type="text" id="working" required><br><br>
+
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button type="button" onclick="clearResult()">Limpar</button>
+        </form>
+
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let employee = document.getElementById("name").value;
+            let money = document.getElementById("wage").value;
+            let years = document.getElementById("working").value;
+
+            if (years <= 3) {
+                let newSalary = parseFloat(money) * 0.03 + parseFloat(money);
+                document.getElementById("showResult").innerHTML = `
+                O funcionário(a) ${employee} trabalha na empresa a ${years} anos e seu novo salário é de R$${newSalary.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}
+                `
+            } else if (years >= 10) {
+                let newSalary = parseFloat(money) * 0.2 + parseFloat(money);
+                document.getElementById("showResult").innerHTML = `
+                O funcionário(a) ${employee} trabalha na empresa a ${years} anos e seu novo salário é de R$${newSalary.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}
+                `
+            } else {
+                let newSalary = parseFloat(money) * 0.125 + parseFloat(money);
+                document.getElementById("showResult").innerHTML = `
+                O funcionário(a) ${employee} trabalha na empresa a ${years} anos e seu novo salário é de R$${newSalary.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}
+                `
+            };
+
+
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("name").value = "";
+            document.getElementById("wage").value = "";
+            document.getElementById("working").value = "";
+        }
+    </script>
+</body>
+
+</html>

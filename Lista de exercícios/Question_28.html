@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .hideDiv {
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 5px 0 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .boldText {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Faça um programa que leia a largura e o comprimento de um terreno
+            retangular, calculando e mostrando a sua área em m². O programa também
+            devemostrar a classificação desse terreno, de acordo com a lista abaixo
+        </p>
+        <p>- Abaixo de 100m² = TERRENO POPULAR</p>
+        <p>- Entre 100m² e 500m² = TERRENO MASTER</p>
+        <p>- Acima de 500m² = TERRENO VIP</p>
+
+        <form class="boldText" id="general">
+            <label for="largura">Insira a largura do terreno:</label>
+            <input type="text" id="largura" required><br><br>
+            <label for="comprimento">Insira o comprimento do terreno:</label>
+            <input type="text" id="comprimento" required><br><br>
+
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button type="button" onclick="clearResult()">Limpar</button>
+        </form>
+
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let L = document.getElementById("largura").value;
+            let C = document.getElementById("comprimento").value;
+
+            let area = (parseFloat(L) * parseFloat(C));
+
+            if (area <= 100) {
+                document.getElementById("showResult").innerHTML = `
+                O terreno tem um área de ${area.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}m² e ele está classificado como <span style="font-weigth: bold; color: #FF0000">TERRENO POPULAR</span>
+                `
+            } else if (area >= 500) {
+                document.getElementById("showResult").innerHTML = `
+                O terreno tem um área de ${area.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}m² e ele está classificado como <span style="font-weigth: bold; color: #0000FF">TERRENO VIP</span>
+                `
+            } else {
+                document.getElementById("showResult").innerHTML = `
+                O terreno tem um área de ${area.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}m² e ele está classificado como <span style="font-weigth: bold; color: #ffb11b">TERRENO MASTER</span>
+                `
+
+            };
+
+
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("largura").value = "";
+            document.getElementById("comprimento").value = "";
+        }
+    </script>
+</body>
+
+</html>
