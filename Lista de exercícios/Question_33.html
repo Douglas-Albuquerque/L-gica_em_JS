@@ -61,6 +61,7 @@
             margin: 0 10px 0 10px;
             font-weight: bold;
         }
+
         .clearButton {
             padding: 10px 20px;
             background-color: #ff0000;
@@ -75,6 +76,7 @@
         .clearButton:hover {
             background-color: #b30000;
         }
+
         button:hover {
             background-color: #0056b3;
         }
@@ -91,14 +93,20 @@
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText"> 
-            [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o 
-            jogador vai tentar descobrir qual foi o valor sorteado.
+        <p class="containerText">
+            Escreva um programa para aprovar ou não o empréstimo bancário para a compra
+            de uma casa. O programa vai perguntar o valor da casa, o salário do comprador e
+            em quantos anos ele vai pagar. Calcule o valor da prestação mensal, sabendo que
+            ela não pode exceder 30% do salário ou então o empréstimo será negado
         </p>
-        <p>O computador sorteou um número entre 1 e 5. Tente adivinhar qual foi!</p>
         <form id="general">
-            <input type="number" id="playerNumber" placeholder="Digite seu palpite">
-            <button type="button" onclick="numeroSorteado()">Adivinhar</button>
+            <label for="house">Qual o valor da casa?</label>
+            <input type="number" id="house">
+            <label for="wage">Qual o salário do comprador?</label>
+            <input type="number" id="wage">
+            <label for="years">Em quantos anos ele vai pagar?</label>
+            <input type="number" id="years"><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
             <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
         </form>
         <h2>Resultado:</h2>
@@ -106,26 +114,33 @@
     </div>
 
     <script>
-        function getRandomNumber(){
-            return Math.floor(Math.random() * 5) + 1;
-        };
-        function numeroSorteado() {
-            let pcNumber = getRandomNumber();
-            console.log(pcNumber);
-            let playerN = parseInt(document.getElementById("playerNumber").value);
+        function calculate() {
+            let housePrice = document.getElementById("house").value;
+            let salary = document.getElementById("wage").value;
+            let years = document.getElementById("years").value;
+            let limit = salary * 0.3;
+            let months = (years * 12)
+            let payment = parseFloat(housePrice / months);
+            
+            console.log(limit);
+            console.log(payment);
 
-            if(isNaN(playerN) || playerN < 1 || playerN > 5){
-                document.getElementById("showResult").innerHTML = `Por favor, insira um número válido entre 1 e 5.`;
-            }else if(playerN === pcNumber){
-                document.getElementById("showResult").textContent = `Parabéns! Você acertou. O número era ${pcNumber}.`;
-            }else{
-                document.getElementById("showResult").textContent = `Tente novamente. O número correto era ${pcNumber}.`;
-            };
+            if (payment > limit) {
+                document.getElementById("showResult").innerHTML = `Emprestimo <span style="font-size: 22px; color: red">negado</span>! 
+                O Valor da mensalidade é de ${payment.toLocaleString("pt-BR",{
+                maximumFractionDigits: 2,})} o que superando <span style="font-size: 22px; color: red">30%</span> do salário do comprador.`;
+            } else {
+                document.getElementById("showResult").innerHTML = `Emprestimo <span style="font-size: 22px; color: blue">aprovado</span>! 
+                O valor a ser pago mensal a ser pago é de ${payment.toLocaleString("pt-BR",{
+                maximumFractionDigits: 2,})} por ${months} meses`
+            }
         };
 
         function clearResult() {
             document.getElementById("showResult").innerHTML = "";
-            document.getElementById("playerNumber").value = "";
+            let housePrice = document.getElementById("house").innerHTML = "";
+            let salary = document.getElementById("wage").innerHTML = "";
+            let years = document.getElementById("years").innerHTML = "";
         }
     </script>
 </body>
