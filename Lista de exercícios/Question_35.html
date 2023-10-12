@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton:hover {
+            background-color: #b30000;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Uma empresa de aluguel de carros precisa cobrar pelos seus serviços. O
+            aluguel de um carro custa R$90 por dia para carro popular e R$150 por dia para
+            carro de luxo. Além disso, o cliente paga por Km percorrido. Faça um programa
+            que leia o tipo de carro alugado (popular ou luxo), quantos dias de aluguel e
+            quantos Km foram percorridos. No final mostre o preço a ser pago de acordo com a
+            tabela a seguir:
+        <p>- Carros populares (aluguel de R$90 por dia)</p>
+        <p>- Até 100Km percorridos: R$0,20 por Km</p>
+        <p>- Acima de 100Km percorridos: R$0,10 por Km</p>
+        <p>- Carros de luxo (aluguel de R$150 por dia)</p>
+        <p>- Até 200Km percorridos: R$0,30 por Km</p>
+        <p>- Acima de 200Km percorridos: R$0,25 por Km</p>
+        </p><br>
+        <form id="general">
+            <label for="type" style="font-size: 20px;">Qual tipo de carro locado?</label>
+            <input type="text" id="type" placeholder="Popular ou Luxo">
+            <label for="days" style="font-size: 20px;">Por quantos dias o carro ficou locado?</label>
+            <input type="number" id="days">
+            <label for="km" style="font-size: 20px;">Quantos quilômetros foram percorridos?</label>
+            <input type="number" id="km"><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+        </form>
+        <h2>Resultado:</h2>
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let typeCar = document.getElementById("type").value;
+            let rentDays = document.getElementById("days").value;
+            let kmDrive = document.getElementById("km").value;
+
+            if (typeCar === "Popular" || typeCar === "Luxo") {
+                if (typeCar === "Popular") {
+                    if (kmDrive <= 100) {
+                        let popularDays = rentDays * 90;
+                        let payment = popularDays + (kmDrive * 0.20);
+                        document.getElementById("showResult").innerHTML = `O cliente deve pagar o total de R$${payment.toLocaleString("pt-BR", {
+                            maximumFractionDigits: 2,
+                        })}, pelo aluguel do veículo.`
+                    } else {
+                        let popularDays = rentDays * 90;
+                        let payment = popularDays + (kmDrive * 0.10);
+                        document.getElementById("showResult").innerHTML = `O cliente deve pagar o total de R$${payment.toLocaleString("pt-BR", {
+                            maximumFractionDigits: 2,
+                        })}, pelo aluguel do veículo.`
+                    }
+                } else {
+                    if (kmDrive <= 200) {
+                        let luxDays = rentDays * 150;
+                        let payment = luxDays + (kmDrive * 0.30);
+                        document.getElementById("showResult").innerHTML = `O cliente deve pagar o total de R$${payment.toLocaleString("pt-BR", {
+                            maximumFractionDigits: 2,
+                        })}, pelo aluguel do veículo.`
+                    } else {
+                        let luxDays = rentDays * 150;
+                        let payment = luxDays + (kmDrive * 0.25);
+                        document.getElementById("showResult").innerHTML = `O cliente deve pagar o total de R$${payment.toLocaleString("pt-BR", {
+                            maximumFractionDigits: 2,
+                        })}, pelo aluguel do veículo.`
+                    }
+                };
+            }else{
+                document.getElementById("showResult").innerHTML = `Insirá um tipo de veículo válido!`
+            }
+
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").innerHTML = "";
+            let typeCar = document.getElementById("type").value = "";
+            let rentDays = document.getElementById("days").value = "";
+            let kmDrive = document.getElementById("km").value = "";
+        }
+    </script>
+</body>
+
+</html>

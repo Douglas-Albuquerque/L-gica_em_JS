@@ -101,16 +101,16 @@
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText">Faça um programa que o usuário insira um número de 1 a 5 e para cada
-            número que ele insira o programa retorne uma frase do Faustão.
-        </p>
-
+        <p class="containerText">
+            Faça um programa em que o usuário digite um número e mostre a tabuada desse número de 1 a 10.
+        </p><br>
         <form id="general">
-            <label for="n1">Insira um número e veja a mensagem:</label>
+            <label for="n1">Insira um número:</label>
             <input type="text" id="n1" required><br><br>
-            <button type="button" onclick="calculate()">Mostrar mensagem</button>
+            <button type="button" onclick="calculate()">Calcular</button>
             <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
         </form>
+        <h2>Resultado:</h2>
 
         <p id="showResult"></p>
     </div>
@@ -118,26 +118,14 @@
     <script>
         function calculate() {
             let number = document.getElementById("n1").value;
+            let i = 1;
+            let result = "";
 
-            switch (parseInt(number)) {
-                case 1:
-                    document.getElementById("showResult").innerHTML = `Ô, loco, meu!`
-                    break;
-                case 2:
-                    document.getElementById("showResult").innerHTML = `Ta pegando fogo, bicho!`
-                    break;
-                case 3:
-                    document.getElementById("showResult").innerHTML = `Ô loco, bixo! Brincadeira!`
-                    break;
-                case 4:
-                    document.getElementById("showResult").innerHTML = `Esta fera aí, meu!`
-                    break;
-                case 5:
-                    document.getElementById("showResult").innerHTML = `Oorrrrra!`
-                    break;
-                default:
-                    alert("Insira um número de 1 a 5");
-            }
+            while (i <= 10) {
+                result += `${number} x ${i} = ${number * i}<br>`;
+                i++;
+            };
+            document.getElementById("showResult").innerHTML = result
         };
 
         function clearResult() {
