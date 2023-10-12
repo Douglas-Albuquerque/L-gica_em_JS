@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton:hover {
+            background-color: #b30000;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Uma empresa precisa reajustar o salário dos seus funcionários, dando um
+            aumento de acordo com alguns fatores. Faça um programa que leia o salário atual,
+            o gênero do funcionário e há quantos anos esse funcionário trabalha na empresa.
+            No final, mostre o seu novo salário, baseado na tabela a seguir:
+        <p>- Mulheres</p>
+        <p>- menos de 15 anos de empresa: +5%</p>
+        <p>- de 15 até 20 anos de empresa: +12%</p>
+        <p>- mais de 20 anos de empresa: +23%</p>
+        <p>- Homens</p>
+        <p>- menos de 20 anos de empresa: +3%</p>
+        <p>- de 20 até 30 anos de empresa: +13%</p>
+        <p>- mais de 30 anos de empresa: +25%</p>
+        </p><br>
+        <form id="general">
+            <label for="wage" style="font-size: 20px;">Qual salário atual do colaborador?</label>
+            <input type="number" id="wage">
+            <label for="gender" style="font-size: 20px;">Qual gênero do colaborador?</label>
+            <input type="text" id="gender" placeholder="Mulher ou Homem">
+            <label for="years" style="font-size: 20px;">Trabalha conosco a quantos anos?</label>
+            <input type="number" id="years"><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+        </form>
+        <h2>Resultado:</h2>
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let wage = document.getElementById("wage").value;
+            let gender = document.getElementById("gender").value;
+            let years = document.getElementById("years").value;
+
+            if (gender === "Mulher" || gender === "Homem") {
+                if (gender === "Mulher") {
+                    if (years < 15) {
+                        let newWage = parseInt(wage) + (wage * 0.05);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionária é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    } else if (years >= 15 && years < 20) {
+                        let newWage = parseInt(wage) + (wage * 0.12);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionária é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    } else {
+                        let newWage = parseInt(wage) + (wage * 0.23);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionária é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    };
+                } else {
+                    if (years < 20) {
+                        let newWage = parseInt(wage) + (wage * 0.03);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionário é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    } else if (years >= 20 && years < 30) {
+                        let newWage = parseInt(wage) + (wage * 0.13);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionário é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    } else {
+                        let newWage = parseInt(wage) + (wage * 0.25);
+                        document.getElementById("showResult").innerHTML = `O novo salário da funcionário é de R$${newWage.toLocaleString("pt-BR", { maximumFractionDigits: 2, })}`
+                    };
+                };
+            } else {
+                alert("Insira um dos gêneros sugeridos para prosseguir.")
+                clearResult();
+            };
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").innerHTML = "";
+            let wage = document.getElementById("wage").value = "";
+            let gender = document.getElementById("gender").value = "";
+            let years = document.getElementById("years").value = "";
+        };
+    </script>
+</body>
+
+</html>

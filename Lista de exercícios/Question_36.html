@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação em JS</title>
+    <style>
+        body {
+            background-color: #2F4F4F;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .containerText {
+            width: 70%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px 0 10px;
+            font-weight: bold;
+        }
+
+        .clearButton:hover {
+            background-color: #b30000;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lógica de Programação em Javascript</h1>
+        <p class="containerText">
+            Um programa de vida saudável quer dar pontos atividades físicas que podem
+            ser trocados por dinheiro. O sistema funciona assim:
+        <p>- Cada hora de atividade física no mês vale pontos</p>
+        <p>- até 10h de atividade no mês: ganha 2 pontos por hora</p>
+        <p>- de 10h até 20h de atividade no mês: ganha 5 pontos por hora</p>
+        <p>- acima de 20h de atividade no mês: ganha 10 pontos por hora</p>
+        <p>- A cada ponto ganho, o cliente fatura R$0,05 (5 centavos)</p>
+        <p>Faça um programa que leia quantas horas de atividade uma pessoa teve por mês,
+            calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.</p>
+        </p><br>
+        <form id="general">
+            <label for="days" style="font-size: 20px;">Quantos dias neste mês você praticou atividade física?</label>
+            <input type="number" id="days">
+            <label for="hours" style="font-size: 20px;">Quantas horas por dia?</label>
+            <input type="number" id="hours"><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+        </form>
+        <h2>Resultado:</h2>
+        <p id="showResult"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            let days = document.getElementById("days").value;
+            let hours = document.getElementById("hours").value;
+            let totalHours = days * hours;
+
+            if (totalHours <= 10) {
+                let points = 2 * totalHours
+                let money = points * 0.05;
+                document.getElementById("showResult").innerHTML = `Neste mês você praticou ${totalHours} horas de atividade física acumulando ${points} pontos que te renderam R$${money.toLocaleString("pt-BR", {
+                    maximumFractionDigits: 2,
+                })}`
+            } else if (totalHours > 10 && totalHours <= 20) {
+                let points = 5 * totalHours
+                let money = points * 0.05;
+                document.getElementById("showResult").innerHTML = `Neste mês você praticou ${totalHours} horas de atividade física acumulando ${points} pontos que te renderam R$${money.toLocaleString("pt-BR", {
+                    maximumFractionDigits: 2,
+                })}`
+            } else {
+                let points = 10 * totalHours
+                let money = points * 0.05;
+                document.getElementById("showResult").innerHTML = `Neste mês você praticou ${totalHours} horas de atividade física acumulando ${points} pontos que te renderam R$${money.toLocaleString("pt-BR", {
+                    maximumFractionDigits: 2,
+                })}`
+            }
+        };
+
+        function clearResult() {
+            document.getElementById("showResult").innerHTML = "";
+            let days = document.getElementById("days").value = "";
+            let hours = document.getElementById("hours").value = "";
+        };
+    </script>
+</body>
+
+</html>
