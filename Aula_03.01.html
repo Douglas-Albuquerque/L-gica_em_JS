@@ -121,9 +121,13 @@
             let i = 1;
             let result = "";
 
-            while (i <= 10) {
+            while (i <= 40) {
                 result += `${number} x ${i} = ${number * i}<br>`;
+                if(i % 10 === 0){
+                    result += `<hr>`
+                }
                 i++;
+             
             };
             document.getElementById("showResult").innerHTML = result
         };

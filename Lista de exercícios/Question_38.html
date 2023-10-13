@@ -102,25 +102,31 @@
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
         <p class="containerText">
-            Faça um programa em que o usuário digite um número e mostre a tabuada desse número de 1 a 10.
+            Escreva um programa que mostre na tela a seguinte contagem:
+            6 7 8 9 10 11 Acabou!
         </p><br>
         <form id="general">
-            <label for="n1">Insira um número:</label>
-            <input type="text" id="n1" required><br><br>
-            <button type="button" onclick="calculate()">Calcular</button>
+            <label for="n1">Clique no botão para exibir a contagem.</label>
+            <button type="button" onclick="calculate()">Exibir</button>
             <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
         </form>
         <h2>Resultado:</h2>
 
         <p id="showResult"></p>
     </div>
+
     <script>
         function calculate() {
-            let number = document.getElementById("n1").value;
+            let i = 6;
             let result = "";
 
-            for(let i = 1; i <= 10; i++){
-                result += `${number} x ${i} = ${number * i}<br>`;
+            while (i <= 11) {
+                result += `${i}...<br>`
+                if (i == 11) {
+                    result += `Acabou!`
+                }
+                i++;
+
             };
             document.getElementById("showResult").innerHTML = result
         };
@@ -128,7 +134,6 @@
         function clearResult() {
             document.getElementById("showResult").textContent = "";
             document.getElementById("n1").value = "";
-            
         };
     </script>
 </body>
