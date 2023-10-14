@@ -96,9 +96,9 @@
 
     <script>
         function calculate() {
-            let retaA = document.getElementById("a").value;
-            let retaB = document.getElementById("b").value;
-            let retaC = document.getElementById("c").value;
+            let retaA = parseFloat(document.getElementById("a").value);
+            let retaB = parseFloat(document.getElementById("b").value);
+            let retaC = parseFloat(document.getElementById("c").value);
         
             if (retaA < retaB + retaC && retaB < retaA + retaC && retaC < retaA + retaB) {
                 

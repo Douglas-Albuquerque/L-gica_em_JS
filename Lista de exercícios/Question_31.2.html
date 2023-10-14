@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        input[type="number"] {
+        input[type="text"] {
             width: 20%;
             padding: 10px;
             margin: 15px 0 15px 0;
@@ -61,7 +61,6 @@
             margin: 0 10px 0 10px;
             font-weight: bold;
         }
-
         .clearButton {
             padding: 10px 20px;
             background-color: #ff0000;
@@ -76,7 +75,6 @@
         .clearButton:hover {
             background-color: #b30000;
         }
-
         button:hover {
             background-color: #0056b3;
         }
@@ -93,14 +91,12 @@
 <body>
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
-        <p class="containerText">
-            [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o
-            jogador vai tentar descobrir qual foi o valor sorteado.
-        </p>
+        <p class="containerText">Crie um jogo de JoKenPo (Pedra-Papel-Tesoura)</p>
+        <p>Escolha uma opção:</p>
         <form id="general">
-            <label for="n">Insira um número de 1 a 5</label>
-            <input type="number" id="n" placeholder="insira o número">
-            <button type="button" onclick="calculate()">Adivinhar</button>
+            <button type="button" onclick="play('pedra')">Pedra</button>
+            <button type="button" onclick="play('tesoura')">Tesoura</button>
+            <button type="button" onclick="play('papel')">Papel</button><br><br>
             <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
         </form>
         <h2>Resultado:</h2>
@@ -108,22 +104,23 @@
     </div>
 
     <script>
-        function calculate() {
-            let pcNumber = Math.floor(Math.random() * 5) + 1;
-            let playerN = document.getElementById("n").value;
+        function play(playerChoice){
+            let possibleChoices = ['pedra','tesoura','papel'];
+            let pcChoice = possibleChoices[Math.floor(Math.random() * 3)];
 
-            if (isNaN(playerN) || playerN < 1 || playerN > 5) {
-                document.getElementById("showResult").innerHTML = `Número inválido! Insira um número de 1 a 5`
-            } else if (pcNumber == playerN) {
-                document.getElementById("showResult").innerHTML = `Você venceu! O número do pc foi ${pcNumber}`
-            } else {
-                document.getElementById("showResult").innerHTML = `Você perdeu! O número do pc foi ${pcNumber}`
+            if(
+                playerChoice === 'pedra' && pcChoice === 'tesoura' ||
+                playerChoice === 'papel' && pcChoice === 'pedra' ||
+                playerChoice === 'tesoura' && pcChoice === 'papel'
+            ){
+                document.getElementById("showResult").innerHTML = "Você ganhou!";
+            }else{
+                document.getElementById("showResult").innerHTML = "Computador ganhou!";
             }
-        };
 
+        };
         function clearResult() {
             document.getElementById("showResult").innerHTML = "";
-            document.getElementById("n").value = "";
         }
     </script>
 </body>

@@ -109,15 +109,15 @@
 
     <script>
         function calculate() {
+            let N = parseInt(document.getElementById("n").value);
             let pcNumber = Math.floor(Math.random() * 5) + 1;
-            let playerN = document.getElementById("n").value;
 
-            if (isNaN(playerN) || playerN < 1 || playerN > 5) {
+            if(isNaN(N) || N < 1 || N > 5 ){
                 document.getElementById("showResult").innerHTML = `Número inválido! Insira um número de 1 a 5`
-            } else if (pcNumber == playerN) {
-                document.getElementById("showResult").innerHTML = `Você venceu! O número do pc foi ${pcNumber}`
-            } else {
-                document.getElementById("showResult").innerHTML = `Você perdeu! O número do pc foi ${pcNumber}`
+            }else if(N === pcNumber){
+                document.getElementById("showResult").innerHTML = `O numéro do pc é ${pcNumber}. Você acertou!`
+            }else{
+                document.getElementById("showResult").innerHTML = `O numéro do pc é ${pcNumber}. Você errou!`
             }
         };
 

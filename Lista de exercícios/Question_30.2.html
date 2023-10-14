@@ -94,36 +94,50 @@
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
         <p class="containerText">
-            [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o
-            jogador vai tentar descobrir qual foi o valor sorteado.
+            Refaça o algoritmo 25, acrescentando o recurso de mostrar que tipo
+            de triângulo será formado:
+        <p>- EQUILÁTERO: todos os lados iguais</p>
+        <p>- ISÓSCELES: dois lados iguais</p>
+        <p>- ESCALENO: todos os lados diferentes</p>
         </p>
         <form id="general">
-            <label for="n">Insira um número de 1 a 5</label>
-            <input type="number" id="n" placeholder="insira o número">
-            <button type="button" onclick="calculate()">Adivinhar</button>
-            <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
+            <label for="a">Insira o tamanho da primeira reta?</label>
+            <input type="Number" id="a" required><br><br>
+            <label for="b">Insira o tamanho da segunda reta?</label>
+            <input type="Number" id="b" required><br><br>
+            <label for="c">Insira o tamanho da terceira reta?</label>
+            <input type="Number" id="c" required><br><br>
+            <button type="button" onclick="calculate()">Calcular</button>
+            <button type="button" onclick="clearResult()">Limpar</button>
         </form>
-        <h2>Resultado:</h2>
+
         <p id="showResult"></p>
     </div>
 
     <script>
         function calculate() {
-            let pcNumber = Math.floor(Math.random() * 5) + 1;
-            let playerN = document.getElementById("n").value;
+            let A = parseFloat(document.getElementById("a").value);
+            let B = parseFloat(document.getElementById("b").value);
+            let C = parseFloat(document.getElementById("c").value);
 
-            if (isNaN(playerN) || playerN < 1 || playerN > 5) {
-                document.getElementById("showResult").innerHTML = `Número inválido! Insira um número de 1 a 5`
-            } else if (pcNumber == playerN) {
-                document.getElementById("showResult").innerHTML = `Você venceu! O número do pc foi ${pcNumber}`
-            } else {
-                document.getElementById("showResult").innerHTML = `Você perdeu! O número do pc foi ${pcNumber}`
-            }
+            if (A < B + C && B < A + C && C < A + B) {
+                if(A === B && B === C){
+                    document.getElementById("showResult").innerHTML = `O triangulo é EQUILÁTERO`
+                }else if(A === B || B === C || A === C){
+                    document.getElementById("showResult").innerHTML = `O triangulo é ISÓSCELES`
+                }else{
+                    document.getElementById("showResult").innerHTML = `O triangulo é ESCALENO`
+                };
+            }else{
+                document.getElementById("showResult").innerHTML = `Os valores não formam um triângulo`
+            };
         };
 
         function clearResult() {
-            document.getElementById("showResult").innerHTML = "";
-            document.getElementById("n").value = "";
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
         }
     </script>
 </body>

@@ -51,6 +51,14 @@
             border-radius: 5px;
         }
 
+        input[type="text"] {
+            width: 20%;
+            padding: 10px;
+            margin: 15px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
         button {
             padding: 10px 20px;
             background-color: #007bff;
@@ -94,37 +102,60 @@
     <div class="container">
         <h1>Lógica de Programação em Javascript</h1>
         <p class="containerText">
-            [DESAFIO] Crie um jogo onde o computador vai sortear um número entre 1 e 5 o
-            jogador vai tentar descobrir qual foi o valor sorteado.
+            Crie um algoritmo que leia o valor inicial da contagem, o valor final e o
+            incremento, mostrando em seguida todos os valores no intervalo:
+        <p>Ex: Digite o primeiro Valor: 3</p>
+        <p>Digite o último Valor: 10</p>
+        <p>Digite o incremento: 2</p>
+        <p>Contagem: 3 5 7 9 Acabou!</p>
         </p>
+
         <form id="general">
-            <label for="n">Insira um número de 1 a 5</label>
-            <input type="number" id="n" placeholder="insira o número">
-            <button type="button" onclick="calculate()">Adivinhar</button>
+            <label for="n1">Insira o valor inicial da contagem:</label>
+            <input type="text" id="n1" required><br><br>
+            <label for="n2">Insira o valor em que a contagem deve parar:</label>
+            <input type="text" id="n2" required><br><br>
+            <label for="n3">insira o valor do incremento:</label>
+            <input type="text" id="n3" required><br><br>
+            <button type="button" onclick="calculate()">Exibir</button>
             <button class="clearButton" type="button" onclick="clearResult()">Limpar</button>
         </form>
-        <h2>Resultado:</h2>
+
         <p id="showResult"></p>
     </div>
 
     <script>
         function calculate() {
-            let pcNumber = Math.floor(Math.random() * 5) + 1;
-            let playerN = document.getElementById("n").value;
+            let ni = parseInt(document.getElementById("n1").value);
+            let nf = parseInt(document.getElementById("n2").value);
+            let nc = parseInt(document.getElementById("n3").value);
+            result = "";
+            let i = ni;
 
-            if (isNaN(playerN) || playerN < 1 || playerN > 5) {
-                document.getElementById("showResult").innerHTML = `Número inválido! Insira um número de 1 a 5`
-            } else if (pcNumber == playerN) {
-                document.getElementById("showResult").innerHTML = `Você venceu! O número do pc foi ${pcNumber}`
+            if (i < nf) {
+                for (i; i < nf; i += nc) {
+                    result += `${i}...`;
+                    if (i == nf) {
+                        resul += `Acabou!`;
+                    };
+                };
             } else {
-                document.getElementById("showResult").innerHTML = `Você perdeu! O número do pc foi ${pcNumber}`
-            }
+                for (i; i > nf; i -= nc) {
+                    result += `${i}...`;
+                    if (i == nf) {
+                        resul += `Acabou!`;
+                    };
+                };
+            };
+            document.getElementById("showResult").innerHTML = result
         };
 
         function clearResult() {
-            document.getElementById("showResult").innerHTML = "";
-            document.getElementById("n").value = "";
-        }
+            document.getElementById("showResult").textContent = "";
+            document.getElementById("n1").value = "";
+            document.getElementById("n2").value = "";
+            document.getElementById("n3").value = "";
+        };
     </script>
 </body>
 
